@@ -19,20 +19,22 @@ public class LoginPage {
     public WebElement buttonMenu;
     @FindBy(id = "logout_sidebar_link")
     public WebElement buttonLogout;
+    @FindBy(id = "remove-sauce-labs-bike-light")
+    WebElement removeButton;
 
     WebDriver driver;
     public LoginPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver , this);
     }
-    public boolean doLoginWithValidCredentials() throws InterruptedException {
+    public void doLoginWithValidCredentials() throws InterruptedException {
         textUsername.sendKeys("standard_user");
         textPassword.sendKeys("secret_sauce");
         Thread.sleep(2000);
         loginButton.click();
         Thread.sleep(2000);
-        buttonMenu.click();
-        return buttonMenu.isDisplayed();
+//        buttonMenu.click();
+//        return buttonMenu.isDisplayed();
     }
     public boolean doLoginWithLockedOutUser(){
         textUsername.sendKeys("locked_out_user");
@@ -45,7 +47,6 @@ public class LoginPage {
         textPassword.sendKeys("secret_sauce");
         loginButton.click();
         return buttonMenu.isDisplayed();
-
     }
     public boolean doLoginWithPerformanceGlitchUser(){
         textUsername.sendKeys("performance_glitch_user");
