@@ -42,13 +42,15 @@ public class OrderPage {
     @FindBy(className = "title")
     WebElement headerDataForProceedToCheckoutAfterClickOnCheckoutButton;
     @FindBy(name = "firstName")
-    WebElement firstName;
+    WebElement firstNameForProceedToPayment;
     @FindBy(name = "lastName")
-    WebElement lastNameForConfirmation;
+    WebElement lastNameForProceedToPayment;
     @FindBy(name = "postalCode")
-    WebElement postalCodeForConfirmation;
+    WebElement postalCodeForProceedToPayment;
     @FindBy(id = "continue")
     WebElement buttonContinue;
+    @FindBy(xpath = "//div[@class='error-message-container error']")
+    WebElement errorMessageIfUserWantToContinueCheckoutWithoutFillCredentials;
     @FindBy(id = "cancel")
     WebElement buttonCancel;
     @FindBy(xpath = "//div[@class='summary_total_label']")
@@ -148,7 +150,7 @@ public class OrderPage {
         return shoppingBadgeCount;
    }
 
-   public String clickOnProductListButtonForCheckOutButContinueShopping() throws InterruptedException {
+   public String clickOnProductListButtonForCheckOutButClickOnContinueShopping() throws InterruptedException {
         Thread.sleep(1500);
         shoppingCartListButton.click();
         Thread.sleep(1500);
@@ -178,5 +180,25 @@ public class OrderPage {
         String headerTextAfterClickOnCheckoutButton = headerDataForProceedToCheckoutAfterClickOnCheckoutButton.getText();
         System.out.println(headerTextAfterClickOnCheckoutButton);
         return headerTextAfterClickOnCheckoutButton;
+   }
+
+   public String clickOnContinueButtonWithoutFillFirstName() throws InterruptedException {
+        Thread.sleep(1500);
+        buttonContinue.click();
+        Thread.sleep(1500);
+        String errorTextForCheckoutWithoutFillFirstName = errorMessageIfUserWantToContinueCheckoutWithoutFillCredentials.getText();
+        System.out.println(errorTextForCheckoutWithoutFillFirstName);
+        return errorTextForCheckoutWithoutFillFirstName;
+   }
+
+   public String clickOnContinueButtonWithoutFillLastName() throws InterruptedException {
+        Thread.sleep(1500);
+        firstNameForProceedToPayment.sendKeys("Mafiul");
+        Thread.sleep(1500);
+        buttonContinue.click();
+        Thread.sleep(1500);
+        String errorTextForCheckoutWithoutFillLAstName = errorMessageIfUserWantToContinueCheckoutWithoutFillCredentials.getText();
+       System.out.println(errorTextForCheckoutWithoutFillLAstName);
+       return errorTextForCheckoutWithoutFillLAstName;
    }
 }

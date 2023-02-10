@@ -77,7 +77,7 @@ public class OrderTestRunner extends Setup {
     @Test(priority = 9 , description = "Continue shopping")
     public void clickForCheckoutButContinueShopping() throws InterruptedException {
         orderPage = new OrderPage(driver);
-        String productListTitlePageText = orderPage.clickOnProductListButtonForCheckOutButContinueShopping();
+        String productListTitlePageText = orderPage.clickOnProductListButtonForCheckOutButClickOnContinueShopping();
         Assert.assertEquals(productListTitlePageText , "PRODUCTS");
     }
 
@@ -93,5 +93,19 @@ public class OrderTestRunner extends Setup {
         orderPage = new OrderPage(driver);
         String textAfterClickOnCheckout = orderPage.againProceedToCheckoutAndProceedToPayment();
         Assert.assertEquals(textAfterClickOnCheckout , "CHECKOUT: YOUR INFORMATION");
+    }
+
+    @Test(priority = 12 , description = "Error message if user want to continue to checkout without filling First Name")
+    public void clickOnButtonContinueWithoutFillFirstName() throws InterruptedException {
+        orderPage = new OrderPage(driver);
+        String errorText = orderPage.clickOnContinueButtonWithoutFillFirstName();
+        Assert.assertEquals(errorText , "Error: First Name is required");
+    }
+
+    @Test(priority = 13 , description = "Error message if user want to continue to checkout without filling Last Name")
+    public void clickOnButtonContinueWithoutFillLastName() throws InterruptedException {
+        orderPage = new OrderPage(driver);
+        String errorText = orderPage.clickOnContinueButtonWithoutFillLastName();
+        Assert.assertEquals(errorText , "Error: Last Name is required");
     }
 }
