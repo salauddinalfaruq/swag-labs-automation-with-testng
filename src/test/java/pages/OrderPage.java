@@ -197,8 +197,21 @@ public class OrderPage {
         Thread.sleep(1500);
         buttonContinue.click();
         Thread.sleep(1500);
-        String errorTextForCheckoutWithoutFillLAstName = errorMessageIfUserWantToContinueCheckoutWithoutFillCredentials.getText();
-       System.out.println(errorTextForCheckoutWithoutFillLAstName);
-       return errorTextForCheckoutWithoutFillLAstName;
+        String errorTextForCheckoutWithoutFillLastName = errorMessageIfUserWantToContinueCheckoutWithoutFillCredentials.getText();
+        System.out.println(errorTextForCheckoutWithoutFillLastName);
+        return errorTextForCheckoutWithoutFillLastName;
+   }
+
+   public String clickOnContinueButtonWithoutFillPostalCode() throws InterruptedException {
+       Thread.sleep(1500);
+       firstNameForProceedToPayment.sendKeys("Mafiul");
+       Thread.sleep(1500);
+       lastNameForProceedToPayment.sendKeys("Islam");
+       Thread.sleep(1500);
+       buttonContinue.click();
+       Thread.sleep(1500);
+       String errorTextForCheckOutWithoutFillPostalCode = errorMessageIfUserWantToContinueCheckoutWithoutFillCredentials.getText();
+       System.out.println(errorTextForCheckOutWithoutFillPostalCode);
+       return errorTextForCheckOutWithoutFillPostalCode;
    }
 }

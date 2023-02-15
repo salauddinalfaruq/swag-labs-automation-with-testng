@@ -95,17 +95,24 @@ public class OrderTestRunner extends Setup {
         Assert.assertEquals(textAfterClickOnCheckout , "CHECKOUT: YOUR INFORMATION");
     }
 
-    @Test(priority = 12 , description = "Error message if user want to continue to checkout without filling First Name")
+    @Test(priority = 12 , description = "Error message if user want to continue to checkout without fill First Name")
     public void clickOnButtonContinueWithoutFillFirstName() throws InterruptedException {
         orderPage = new OrderPage(driver);
         String errorText = orderPage.clickOnContinueButtonWithoutFillFirstName();
         Assert.assertEquals(errorText , "Error: First Name is required");
     }
 
-    @Test(priority = 13 , description = "Error message if user want to continue to checkout without filling Last Name")
+    @Test(priority = 13 , description = "Error message if user want to continue to checkout without fill Last Name")
     public void clickOnButtonContinueWithoutFillLastName() throws InterruptedException {
         orderPage = new OrderPage(driver);
         String errorText = orderPage.clickOnContinueButtonWithoutFillLastName();
         Assert.assertEquals(errorText , "Error: Last Name is required");
+    }
+
+    @Test(priority = 14 , description = "Error message if user want to continue without fill Postal Code")
+    public void clickOnContinueButtonWithoutFillPostalCode1() throws InterruptedException {
+//        driver.get("https://www.saucedemo.com/");
+        orderPage = new OrderPage(driver);
+        String errorText = orderPage.clickOnContinueButtonWithoutFillPostalCode();
     }
 }
