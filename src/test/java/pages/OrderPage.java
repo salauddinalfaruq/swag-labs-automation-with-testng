@@ -51,6 +51,8 @@ public class OrderPage {
     WebElement buttonContinue;
     @FindBy(xpath = "//div[@class='error-message-container error']")
     WebElement errorMessageIfUserWantToContinueCheckoutWithoutFillCredentials;
+    @FindBy(xpath = "//span[@class='title']")
+    WebElement checkoutOverview;
     @FindBy(id = "cancel")
     WebElement buttonCancel;
     @FindBy(xpath = "//div[@class='summary_total_label']")
@@ -204,6 +206,8 @@ public class OrderPage {
 
    public String clickOnContinueButtonWithoutFillPostalCode() throws InterruptedException {
        Thread.sleep(1500);
+       firstNameForProceedToPayment.clear();
+       Thread.sleep(1500);
        firstNameForProceedToPayment.sendKeys("Mafiul");
        Thread.sleep(1500);
        lastNameForProceedToPayment.sendKeys("Islam");
@@ -213,5 +217,24 @@ public class OrderPage {
        String errorTextForCheckOutWithoutFillPostalCode = errorMessageIfUserWantToContinueCheckoutWithoutFillCredentials.getText();
        System.out.println(errorTextForCheckOutWithoutFillPostalCode);
        return errorTextForCheckOutWithoutFillPostalCode;
+   }
+
+   public String fillAllTheCredentialsButDoNotClickOnContinueButton() throws InterruptedException {
+        Thread.sleep(1500);
+        firstNameForProceedToPayment.clear();
+        Thread.sleep(1500);
+        firstNameForProceedToPayment.sendKeys("Mafiul");
+        Thread.sleep(1500);
+        lastNameForProceedToPayment.clear();
+        Thread.sleep(1500);
+        lastNameForProceedToPayment.sendKeys("Islam");
+        Thread.sleep(1500);
+        postalCodeForProceedToPayment.sendKeys("1207");
+        Thread.sleep(1500);
+        buttonContinue.click();
+        Thread.sleep(1500);
+        String checkoutOverviewText = checkoutOverview.getText();
+        System.out.println(checkoutOverviewText);
+        return checkoutOverviewText;
    }
 }

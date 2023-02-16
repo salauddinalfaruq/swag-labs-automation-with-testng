@@ -110,9 +110,16 @@ public class OrderTestRunner extends Setup {
     }
 
     @Test(priority = 14 , description = "Error message if user want to continue without fill Postal Code")
-    public void clickOnContinueButtonWithoutFillPostalCode1() throws InterruptedException {
-//        driver.get("https://www.saucedemo.com/");
+    public void clickOnContinueButtonWithoutFillPostalCode() throws InterruptedException {
         orderPage = new OrderPage(driver);
         String errorText = orderPage.clickOnContinueButtonWithoutFillPostalCode();
+        Assert.assertEquals(errorText , "Error: Postal Code is required");
+    }
+
+    @Test(priority = 15 , description = "Fill all the credentials but not click on continue button")
+    public void fillAllTheCredentialsButNotClickOnContinueButton() throws InterruptedException {
+        orderPage = new OrderPage(driver);
+        String checkoutOverviewActualText = orderPage.fillAllTheCredentialsButDoNotClickOnContinueButton();
+        Assert.assertEquals(checkoutOverviewActualText , "CHECKOUT: OVERVIEW");
     }
 }
