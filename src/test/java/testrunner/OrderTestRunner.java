@@ -122,4 +122,11 @@ public class OrderTestRunner extends Setup {
         String checkoutOverviewActualText = orderPage.fillAllTheCredentialsButDoNotClickOnContinueButton();
         Assert.assertEquals(checkoutOverviewActualText , "CHECKOUT: OVERVIEW");
     }
+
+    @Test(priority = 16 , description = "Back to product list page")
+    public void clickOnCancelButtonInBackToProductListForAddProduct() throws InterruptedException {
+        orderPage = new OrderPage(driver);
+        String productListPageActualText = orderPage.clickOnCancelBackAndBackToProductListForAddProduct();
+        Assert.assertEquals(productListPageActualText , "PRODUCTS");
+    }
 }

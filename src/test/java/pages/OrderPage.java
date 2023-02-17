@@ -54,7 +54,9 @@ public class OrderPage {
     @FindBy(xpath = "//span[@class='title']")
     WebElement checkoutOverview;
     @FindBy(id = "cancel")
-    WebElement buttonCancel;
+    WebElement cancelButtonInCheckoutOverview;
+    @FindBy(className = "product_sort_container")
+    WebElement productSortContainerField;
     @FindBy(xpath = "//div[@class='summary_total_label']")
     WebElement totalPaymentInformation;
     @FindBy(id = "finish")
@@ -236,5 +238,14 @@ public class OrderPage {
         String checkoutOverviewText = checkoutOverview.getText();
         System.out.println(checkoutOverviewText);
         return checkoutOverviewText;
+   }
+
+   public String clickOnCancelBackAndBackToProductListForAddProduct() throws InterruptedException {
+        Thread.sleep(1500);
+        cancelButtonInCheckoutOverview.click();
+        Thread.sleep(1500);
+        String productTitlePageText = backOnProductPageTitle.getText();
+        System.out.println(productTitlePageText);
+        return productTitlePageText;
    }
 }
