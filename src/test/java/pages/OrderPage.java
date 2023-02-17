@@ -208,9 +208,9 @@ public class OrderPage {
        Thread.sleep(1500);
        firstNameForProceedToPayment.clear();
        Thread.sleep(1500);
-       firstNameForProceedToPayment.sendKeys("Mafiul");
+       firstNameForProceedToPayment.sendKeys("Muntasir");
        Thread.sleep(1500);
-       lastNameForProceedToPayment.sendKeys("Islam");
+       lastNameForProceedToPayment.sendKeys("Abir");
        Thread.sleep(1500);
        buttonContinue.click();
        Thread.sleep(1500);
@@ -223,11 +223,11 @@ public class OrderPage {
         Thread.sleep(1500);
         firstNameForProceedToPayment.clear();
         Thread.sleep(1500);
-        firstNameForProceedToPayment.sendKeys("Mafiul");
+        firstNameForProceedToPayment.sendKeys("Shahriar");
         Thread.sleep(1500);
         lastNameForProceedToPayment.clear();
         Thread.sleep(1500);
-        lastNameForProceedToPayment.sendKeys("Islam");
+        lastNameForProceedToPayment.sendKeys("Sadi");
         Thread.sleep(1500);
         postalCodeForProceedToPayment.sendKeys("1207");
         Thread.sleep(1500);
