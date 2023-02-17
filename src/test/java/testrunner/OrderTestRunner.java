@@ -129,4 +129,10 @@ public class OrderTestRunner extends Setup {
         String productListPageActualText = orderPage.clickOnCancelBackAndBackToProductListForAddProduct();
         Assert.assertEquals(productListPageActualText , "PRODUCTS");
     }
+
+    @Test(priority = 17 , description = "Back to product and add product in cart")
+    public void backToProductListAndAddProduct() throws InterruptedException {
+        orderPage = new OrderPage(driver);
+        orderPage.addProductsInCart();
+    }
 }

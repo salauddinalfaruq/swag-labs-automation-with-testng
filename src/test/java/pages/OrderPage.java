@@ -57,6 +57,8 @@ public class OrderPage {
     WebElement cancelButtonInCheckoutOverview;
     @FindBy(className = "product_sort_container")
     WebElement productSortContainerField;
+    @FindBy(xpath = "//option[@value='lohi']")
+    WebElement productSortingLowToHighButton;
     @FindBy(xpath = "//div[@class='summary_total_label']")
     WebElement totalPaymentInformation;
     @FindBy(id = "finish")
@@ -247,5 +249,15 @@ public class OrderPage {
         String productTitlePageText = backOnProductPageTitle.getText();
         System.out.println(productTitlePageText);
         return productTitlePageText;
+   }
+
+   public void addProductsInCart() throws InterruptedException {
+        Thread.sleep(1500);
+        productSortContainerField.click();
+        Thread.sleep(1500);
+        productSortingLowToHighButton.click();
+        Thread.sleep(1500);
+        String productContainerFieldText = productSortContainerField.getText();
+        System.out.println(productContainerFieldText);
    }
 }
