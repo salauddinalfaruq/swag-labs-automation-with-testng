@@ -1,14 +1,14 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class OrderPage {
 
-    public String getRemoveButtonTextValue;
-    public String badgeCounter;
     @FindBy(id = "add-to-cart-sauce-labs-bike-light")
     WebElement addToCartButtonForBikeLight;
     @FindBy(id = "add-to-cart-sauce-labs-fleece-jacket")
@@ -69,6 +69,8 @@ public class OrderPage {
     WebElement orderConfirmationMessage;
     @FindBy(name = "back-to-products")
     WebElement backToHomeButton;
+
+    Actions actions;
 
     WebDriver driver;
     public OrderPage(WebDriver driver){
@@ -210,7 +212,10 @@ public class OrderPage {
 
    public String clickOnContinueButtonWithoutFillPostalCode() throws InterruptedException {
        Thread.sleep(1500);
-       firstNameForProceedToPayment.clear();
+       actions = new Actions(driver);
+       actions.moveToElement(firstNameForProceedToPayment).doubleClick().click().
+               keyDown(Keys.BACK_SPACE).
+               keyUp(Keys.BACK_SPACE).perform();
        Thread.sleep(1500);
        firstNameForProceedToPayment.sendKeys("Muntasir");
        Thread.sleep(1500);
@@ -225,11 +230,18 @@ public class OrderPage {
 
    public String fillAllTheCredentialsButDoNotClickOnContinueButton() throws InterruptedException {
         Thread.sleep(1500);
-        firstNameForProceedToPayment.clear();
+     //   firstNameForProceedToPayment.clear();
+        actions.moveToElement(firstNameForProceedToPayment).doubleClick().click().
+               keyDown(Keys.BACK_SPACE).
+               keyUp(Keys.BACK_SPACE).perform();
+        Thread.sleep(1500);
+        actions.moveToElement(lastNameForProceedToPayment).doubleClick().click().
+               keyDown(Keys.BACK_SPACE).
+               keyUp(Keys.BACK_SPACE).perform();
         Thread.sleep(1500);
         firstNameForProceedToPayment.sendKeys("Shahriar");
         Thread.sleep(1500);
-        lastNameForProceedToPayment.clear();
+     //   lastNameForProceedToPayment.clear();
         Thread.sleep(1500);
         lastNameForProceedToPayment.sendKeys("Sadi");
         Thread.sleep(1500);
