@@ -131,8 +131,9 @@ public class OrderTestRunner extends Setup {
     }
 
     @Test(priority = 17 , description = "Back to product and add product in cart")
-    public void backToProductListAndAddProduct() throws InterruptedException {
+    public void backToProductListAndClickONProductSortingButton() throws InterruptedException {
         orderPage = new OrderPage(driver);
-        orderPage.addProductsInCart();
+        String productSortingFieldTextAfterClickOnLowToHigh = orderPage.clickONProductSortingButtonAndSortProduct();
+        Assert.assertEquals(productSortingFieldTextAfterClickOnLowToHigh , "Price (low to high)");
     }
 }

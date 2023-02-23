@@ -59,6 +59,8 @@ public class OrderPage {
     WebElement productSortContainerField;
     @FindBy(xpath = "//option[@value='lohi']")
     WebElement productSortingLowToHighButton;
+    @FindBy(id = "add-to-cart-sauce-labs-onesie")
+    WebElement onesieAddToCArtButton;
     @FindBy(xpath = "//div[@class='summary_total_label']")
     WebElement totalPaymentInformation;
     @FindBy(id = "finish")
@@ -230,7 +232,7 @@ public class OrderPage {
 
    public String fillAllTheCredentialsButDoNotClickOnContinueButton() throws InterruptedException {
         Thread.sleep(1500);
-     //   firstNameForProceedToPayment.clear();
+        actions = new Actions(driver);
         actions.moveToElement(firstNameForProceedToPayment).doubleClick().click().
                keyDown(Keys.BACK_SPACE).
                keyUp(Keys.BACK_SPACE).perform();
@@ -241,8 +243,6 @@ public class OrderPage {
         Thread.sleep(1500);
         firstNameForProceedToPayment.sendKeys("Shahriar");
         Thread.sleep(1500);
-     //   lastNameForProceedToPayment.clear();
-        Thread.sleep(1500);
         lastNameForProceedToPayment.sendKeys("Sadi");
         Thread.sleep(1500);
         postalCodeForProceedToPayment.sendKeys("1207");
@@ -251,6 +251,7 @@ public class OrderPage {
         Thread.sleep(1500);
         String checkoutOverviewText = checkoutOverview.getText();
         System.out.println(checkoutOverviewText);
+        Thread.sleep(1500);
         return checkoutOverviewText;
    }
 
@@ -263,13 +264,24 @@ public class OrderPage {
         return productTitlePageText;
    }
 
-   public void addProductsInCart() throws InterruptedException {
+   public String clickONProductSortingButtonAndSortProduct() throws InterruptedException {
         Thread.sleep(1500);
         productSortContainerField.click();
         Thread.sleep(1500);
         productSortingLowToHighButton.click();
         Thread.sleep(1500);
-        String productContainerFieldText = productSortContainerField.getText();
-        System.out.println(productContainerFieldText);
+        String productSortingFieldText = productSortingLowToHighButton.getText();
+        System.out.println(productSortingFieldText);
+        return productSortingFieldText;
+   }
+
+   public String addSauceLabsOnesieInCart() throws InterruptedException {
+        Thread.sleep(1500);
+        onesieAddToCArtButton.click();
+        Thread.sleep(1500);
+        String shoppingBadgeCount = shoppingBadge.getText();
+        Thread.sleep(1500);
+        System.out.println(shoppingBadgeCount);
+        return shoppingBadgeCount;
    }
 }
