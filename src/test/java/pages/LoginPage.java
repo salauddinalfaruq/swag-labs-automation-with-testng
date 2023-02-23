@@ -29,6 +29,7 @@ public class LoginPage {
     }
     public void doLoginWithValidCredentials() throws InterruptedException {
         textUsername.sendKeys("standard_user");
+        Thread.sleep(1500);
         textPassword.sendKeys("secret_sauce");
         Thread.sleep(2000);
         loginButton.click();
