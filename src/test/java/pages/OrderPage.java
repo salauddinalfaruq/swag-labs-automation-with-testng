@@ -61,7 +61,7 @@ public class OrderPage {
     WebElement productSortingLowToHighButton;
     @FindBy(id = "add-to-cart-sauce-labs-onesie")
     WebElement onesieAddToCartButton;
-    @FindBy(xpath = "//div[@class='summary_total_label']")
+    @FindBy(xpath = "//div[@class='summary_info_label summary_total_label']")
     WebElement totalPaymentInformation;
     @FindBy(id = "finish")
     WebElement finishButton;
@@ -283,5 +283,32 @@ public class OrderPage {
         Thread.sleep(1500);
         System.out.println(shoppingBadgeCount);
         return shoppingBadgeCount;
+   }
+
+   public String clickOnCartListAndCheckoutButtonForCheckOut() throws InterruptedException {
+        Thread.sleep(1500);
+        shoppingCartListButton.click();
+        Thread.sleep(1500);
+        buttonCheckout.click();
+        Thread.sleep(1500);
+        String headerTextAfterClickOnCheckoutButton = headerDataForProceedToCheckoutAfterClickOnCheckoutButton.getText();
+        System.out.println(headerTextAfterClickOnCheckoutButton);
+        return headerTextAfterClickOnCheckoutButton;
+   }
+
+   public String finallyFillAllTheCredentialsAndClickOnContinueForProceedToPayment() throws InterruptedException {
+        Thread.sleep(1500);
+        firstNameForProceedToPayment.sendKeys("Ayan");
+        Thread.sleep(1500);
+        lastNameForProceedToPayment.sendKeys("Rahman");
+        Thread.sleep(1500);
+        postalCodeForProceedToPayment.sendKeys("1212");
+        Thread.sleep(1500);
+        buttonContinue.click();
+        Thread.sleep(1500);
+        String totalPaymentInformationText = totalPaymentInformation.getText();
+        Thread.sleep(1500);
+        System.out.println(totalPaymentInformationText);
+        return totalPaymentInformationText;
    }
 }

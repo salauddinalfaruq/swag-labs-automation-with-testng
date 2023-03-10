@@ -1,6 +1,7 @@
 package testrunner;
 
 import base.Setup;
+import org.checkerframework.checker.units.qual.A;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -144,5 +145,16 @@ public class OrderTestRunner extends Setup {
         Assert.assertEquals(shoppingBadgeCount , "3");
     }
 
+    @Test(priority = 19 , description = "Finally click on checkout button for proceed to payment")
+    public void finallyClickCheckoutForProceedToPayment() throws InterruptedException {
+        orderPage = new OrderPage(driver);
+        String textAfterClickOnCheckOutButton = orderPage.clickOnCartListAndCheckoutButtonForCheckOut();
+        Assert.assertEquals(textAfterClickOnCheckOutButton , "Checkout: Your Information");
+    }
 
+    @Test(priority = 20 , description = "Fill all the credentials but not click on continue button")
+    public void finallyFillAllTheCredentialsAndClickOnContinueForProceedToPayment() throws InterruptedException {
+        orderPage = new OrderPage(driver);
+         orderPage.finallyFillAllTheCredentialsAndClickOnContinueForProceedToPayment();
+    }
 }
