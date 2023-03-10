@@ -155,6 +155,7 @@ public class OrderTestRunner extends Setup {
     @Test(priority = 20 , description = "Fill all the credentials but not click on continue button")
     public void finallyFillAllTheCredentialsAndClickOnContinueForProceedToPayment() throws InterruptedException {
         orderPage = new OrderPage(driver);
-         orderPage.finallyFillAllTheCredentialsAndClickOnContinueForProceedToPayment();
+        String totalPaymentInfoText = orderPage.finallyFillAllTheCredentialsAndClickOnContinueForProceedToPayment();
+        Assert.assertEquals(totalPaymentInfoText , "Total: $51.81");
     }
 }

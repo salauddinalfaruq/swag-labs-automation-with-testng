@@ -311,4 +311,6 @@ public class OrderPage {
         System.out.println(totalPaymentInformationText);
         return totalPaymentInformationText;
    }
+
+
 }
