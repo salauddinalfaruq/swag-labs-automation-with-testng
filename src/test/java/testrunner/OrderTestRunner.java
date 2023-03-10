@@ -158,4 +158,10 @@ public class OrderTestRunner extends Setup {
         String totalPaymentInfoText = orderPage.finallyFillAllTheCredentialsAndClickOnContinueForProceedToPayment();
         Assert.assertEquals(totalPaymentInfoText , "Total: $51.81");
     }
+
+    @Test(priority = 21 , description = "Confirm order greting message")
+    public void orderConfirmationMessage() throws InterruptedException {
+        orderPage = new OrderPage(driver);
+        orderPage.clickOnFinishButtonAndCompleteTheProcess();
+    }
 }

@@ -65,9 +65,7 @@ public class OrderPage {
     WebElement totalPaymentInformation;
     @FindBy(id = "finish")
     WebElement finishButton;
-    @FindBy(id = "cancel")
-    WebElement buttonCancelAfterDisplayTotalPaymentInformation;
-    @FindBy(className = "complete-header")
+    @FindBy(xpath = "//h2[normalize-space()='Thank you for your order!']")
     WebElement orderConfirmationMessage;
     @FindBy(name = "back-to-products")
     WebElement backToHomeButton;
@@ -312,5 +310,12 @@ public class OrderPage {
         return totalPaymentInformationText;
    }
 
-
+   public String clickOnFinishButtonAndCompleteTheProcess() throws InterruptedException {
+        Thread.sleep(1500);
+        finishButton.click();
+        Thread.sleep(1500);
+        String orderConfirmationText = orderConfirmationMessage.getText();
+        System.out.println(orderConfirmationText);
+        return orderConfirmationText;
+   }
 }
