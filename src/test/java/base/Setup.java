@@ -23,7 +23,7 @@ public class Setup {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
-    @AfterMethod
+/*  @AfterMethod
     public void screenShot(ITestResult result) throws IOException {
         if (ITestResult.SUCCESS == result.getStatus()){
             try {
@@ -40,6 +40,18 @@ public class Setup {
                 utils.takeScreenshot(driver);
             }
             catch (Exception exception){
+                System.out.println(exception.toString());
+            }
+        }
+    } */
+
+    @AfterMethod
+    public void screenShot(ITestResult result) throws IOException {
+        if (ITestResult.FAILURE == result.getStatus()) {
+            try {
+                Utils utils = new Utils();
+                utils.takeScreenshot(driver);
+            } catch (Exception exception) {
                 System.out.println(exception.toString());
             }
         }

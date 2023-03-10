@@ -60,7 +60,7 @@ public class OrderPage {
     @FindBy(xpath = "//option[@value='lohi']")
     WebElement productSortingLowToHighButton;
     @FindBy(id = "add-to-cart-sauce-labs-onesie")
-    WebElement onesieAddToCArtButton;
+    WebElement onesieAddToCartButton;
     @FindBy(xpath = "//div[@class='summary_total_label']")
     WebElement totalPaymentInformation;
     @FindBy(id = "finish")
@@ -90,7 +90,7 @@ public class OrderPage {
         return shoppingBadgeCount;
     }
 
-    public String addSauceLabFourthItemJacketInCart() throws InterruptedException {
+    public String addSauceLabFleeceJacket() throws InterruptedException {
         Thread.sleep(1500);
         addToCartButtonForFleeceJacket.click();
         Thread.sleep(1500);
@@ -277,7 +277,7 @@ public class OrderPage {
 
    public String addSauceLabsOnesieInCart() throws InterruptedException {
         Thread.sleep(1500);
-        onesieAddToCArtButton.click();
+        onesieAddToCartButton.click();
         Thread.sleep(1500);
         String shoppingBadgeCount = shoppingBadge.getText();
         Thread.sleep(1500);

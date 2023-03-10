@@ -23,9 +23,9 @@ public class OrderTestRunner extends Setup {
     }
 
     @Test(priority = 2 , description = "Add fleece jacket in cart")
-    public void addFourthItemJacketINCart() throws InterruptedException {
+    public void addFleeceJacketINCart() throws InterruptedException {
         orderPage = new OrderPage(driver);
-        String badgeCount = orderPage.addSauceLabFourthItemJacketInCart();
+        String badgeCount = orderPage.addSauceLabFleeceJacket();
 //        String getRemoveTxt = orderPage.getGetRemoveButtonTextValue();
 //        System.out.println(badgeCount + getRemoveTxt);
        Assert.assertEquals(badgeCount , "2");
@@ -57,7 +57,7 @@ public class OrderTestRunner extends Setup {
     public void clickOnBackToProductForContinueShopping() throws InterruptedException {
         orderPage = new OrderPage(driver);
         String productListTitlePageText = orderPage.clickOnBackToProductButtonForAddProductInCart();
-        Assert.assertEquals(productListTitlePageText , "PRODUCTS");
+        Assert.assertEquals(productListTitlePageText , "Products");
     }
 
     @Test(priority = 7 , description = "Add red TShirt in cart")
@@ -78,7 +78,7 @@ public class OrderTestRunner extends Setup {
     public void clickForCheckoutButContinueShopping() throws InterruptedException {
         orderPage = new OrderPage(driver);
         String productListTitlePageText = orderPage.clickOnProductListButtonForCheckOutButClickOnContinueShopping();
-        Assert.assertEquals(productListTitlePageText , "PRODUCTS");
+        Assert.assertEquals(productListTitlePageText , "Products");
     }
 
     @Test(priority = 10 , description = "Add Backpack in cart")
@@ -92,7 +92,7 @@ public class OrderTestRunner extends Setup {
     public void againWantToCheckout() throws InterruptedException {
         orderPage = new OrderPage(driver);
         String textAfterClickOnCheckout = orderPage.againProceedToCheckoutAndProceedToPayment();
-        Assert.assertEquals(textAfterClickOnCheckout , "CHECKOUT: YOUR INFORMATION");
+        Assert.assertEquals(textAfterClickOnCheckout , "Checkout: Your Information");
     }
 
     @Test(priority = 12 , description = "Error message if user want to continue to checkout without fill First Name")
@@ -120,14 +120,14 @@ public class OrderTestRunner extends Setup {
     public void fillAllTheCredentialsButNotClickOnContinueButton() throws InterruptedException {
         orderPage = new OrderPage(driver);
         String checkoutOverviewActualText = orderPage.fillAllTheCredentialsButDoNotClickOnContinueButton();
-        Assert.assertEquals(checkoutOverviewActualText , "CHECKOUT: OVERVIEW");
+        Assert.assertEquals(checkoutOverviewActualText , "Checkout: Overview");
     }
 
     @Test(priority = 16 , description = "Back to product list page")
     public void clickOnCancelButtonInBackToProductListForAddProduct() throws InterruptedException {
         orderPage = new OrderPage(driver);
         String productListPageActualText = orderPage.clickOnCancelBackAndBackToProductListForAddProduct();
-        Assert.assertEquals(productListPageActualText , "PRODUCTS");
+        Assert.assertEquals(productListPageActualText , "Products");
     }
 
     @Test(priority = 17 , description = "Back to product and add product in cart")
@@ -136,4 +136,13 @@ public class OrderTestRunner extends Setup {
         String productSortingFieldTextAfterClickOnLowToHigh = orderPage.clickONProductSortingButtonAndSortProduct();
         Assert.assertEquals(productSortingFieldTextAfterClickOnLowToHigh , "Price (low to high)");
     }
+
+    @Test(priority = 18 , description = "Add onesie in cart")
+    public void addOnesieInCart() throws InterruptedException {
+        orderPage = new OrderPage(driver);
+        String shoppingBadgeCount = orderPage.addSauceLabsOnesieInCart();
+        Assert.assertEquals(shoppingBadgeCount , "3");
+    }
+
+
 }
