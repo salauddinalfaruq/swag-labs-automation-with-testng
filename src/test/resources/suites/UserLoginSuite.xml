@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite thread-count = "1" verbose = "1" name = "E-commerce portal automation">
+    <test name = "Successfully Login in Swag Labs WebPortal">
+        <classes>
+            <class name = "testrunner.LoginTestRunner"/>
+        </classes>
+    </test>
+</suite>

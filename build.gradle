@@ -17,3 +17,10 @@ dependencies {
     // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
 }
+
+test {
+    useTestNG() {
+        suites "./src/test/resources/suites/UserLoginSuite.xml"
+        suites "./src/test/resources/suites/UserOrderSuite.xml"
+    }
+}
