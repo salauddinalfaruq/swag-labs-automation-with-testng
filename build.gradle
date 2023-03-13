@@ -16,11 +16,14 @@ dependencies {
     testImplementation group: 'org.testng', name: 'testng', version: '7.1.0'
     // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
+    // https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
+    implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.18.1'
 }
 
 test {
     useTestNG() {
-        suites "./src/test/resources/suites/UserLoginSuite.xml"
-        suites "./src/test/resources/suites/UserOrderSuite.xml"
+//        suites "./src/test/resources/suites/UserLoginSuite.xml"
+//        suites "./src/test/resources/suites/UserOrderSuite.xml"
+        suites "./src/test/resources/suites/MasterSuite.xml"
     }
 }
