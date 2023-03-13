@@ -159,9 +159,10 @@ public class OrderTestRunner extends Setup {
         Assert.assertEquals(totalPaymentInfoText , "Total: $51.81");
     }
 
-    @Test(priority = 21 , description = "Confirm order greting message")
+    @Test(priority = 21 , description = "Confirm order greetings message")
     public void orderConfirmationMessage() throws InterruptedException {
         orderPage = new OrderPage(driver);
-        orderPage.clickOnFinishButtonAndCompleteTheProcess();
+        String orderConfirmationText = orderPage.clickOnFinishButtonAndCompleteTheProcess();
+        Assert.assertEquals(orderConfirmationText , "Thank you for your order!");
     }
 }
