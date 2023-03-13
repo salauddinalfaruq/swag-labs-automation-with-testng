@@ -13,10 +13,10 @@ public class LoginTestRunner extends Setup {
     public void loginWithValidCredentials() throws InterruptedException {
         driver.get("https://www.saucedemo.com/");
         loginPage = new LoginPage(driver);
-      //  boolean isMenuButtonFound = loginPage.doLoginWithValidCredentials();
-      //  Assert.assertEquals(isMenuButtonFound , true);
+        boolean isMenuButtonFound = loginPage.doLoginWithValidCredentials();
+        Assert.assertEquals(isMenuButtonFound , true);
         Thread.sleep(2000);
-      //  loginPage.buttonLogout.click();
+        loginPage.buttonLogout.click();
     }
 
     @Test(priority = 4 , description = "Login with locked out user")

@@ -1,7 +1,6 @@
 package testrunner;
 
 import base.Setup;
-import org.checkerframework.checker.units.qual.A;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -17,20 +16,20 @@ public class OrderTestRunner extends Setup {
         driver.get("https://www.saucedemo.com/");
         loginPage = new LoginPage(driver);
         orderPage = new OrderPage(driver);
-        loginPage.doLoginWithValidCredentials();
+        loginPage.doLoginWithValidCredentialsForOrderProcess();
         String text = orderPage.addBikeLightInCart();
         Assert.assertEquals(text , "1");
         Thread.sleep(2000);
     }
 
     @Test(priority = 2 , description = "Add fleece jacket in cart")
-    public void addFleeceJacketINCart() throws InterruptedException {
+    public void addFleeceJacketInCart() throws InterruptedException {
         orderPage = new OrderPage(driver);
         String badgeCount = orderPage.addSauceLabFleeceJacket();
 //        String getRemoveTxt = orderPage.getGetRemoveButtonTextValue();
 //        System.out.println(badgeCount + getRemoveTxt);
-       Assert.assertEquals(badgeCount , "2");
-       Thread.sleep(2000);
+        Assert.assertEquals(badgeCount , "2");
+        Thread.sleep(2000);
     }
 
     @Test(priority = 3 , description = "Remove fleece jacket from cart")
