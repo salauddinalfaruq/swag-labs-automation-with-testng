@@ -137,8 +137,8 @@ public class OrderTestRunner extends Setup {
         Assert.assertEquals(productSortingFieldTextAfterClickOnLowToHigh , "Price (low to high)");
     }
 
-    @Test(priority = 18 , description = "Add onesie in cart")
-    public void addOnesieInCart() throws InterruptedException {
+    @Test(priority = 18 , description = "Add OneSie in cart")
+    public void addOneSieInCart() throws InterruptedException {
         orderPage = new OrderPage(driver);
         String shoppingBadgeCount = orderPage.addSauceLabsOnesieInCart();
         Assert.assertEquals(shoppingBadgeCount , "3");
