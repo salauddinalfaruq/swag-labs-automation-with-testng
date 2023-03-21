@@ -21,12 +21,24 @@ public class Setup {
 
     @BeforeTest
     public void Setup(){
-//        System.setProperty("webdriver.gecko.driver" , "./src/test/resources/geckodriver.exe");
-//        FirefoxOptions options = new FirefoxOptions();
-//        options.addArguments("--headed");
+//      System.setProperty("webdriver.gecko.driver" , "./src/test/resources/geckodriver.exe");
+//      FirefoxOptions options = new FirefoxOptions();
+//      options.addArguments("--headed");
         driver = new EdgeDriver();
         driver.manage().window();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+    }
+
+    @AfterMethod
+    public void screenShot(ITestResult result) throws IOException {
+        if (ITestResult.FAILURE == result.getStatus()) {
+            try {
+                Utils utils = new Utils();
+                utils.takeScreenshot(driver);
+            } catch (Exception exception) {
+                System.out.println(exception.toString());
+            }
+        }
     }
 
 /*  @AfterMethod
@@ -50,18 +62,6 @@ public class Setup {
             }
         }
     } */
-
-    @AfterMethod
-    public void screenShot(ITestResult result) throws IOException {
-        if (ITestResult.FAILURE == result.getStatus()) {
-            try {
-                Utils utils = new Utils();
-                utils.takeScreenshot(driver);
-            } catch (Exception exception) {
-                System.out.println(exception.toString());
-            }
-        }
-    }
 
     @AfterTest
     public void closeDriver()
