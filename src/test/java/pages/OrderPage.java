@@ -296,9 +296,9 @@ public class OrderPage {
 
    public String finallyFillAllTheCredentialsAndClickOnContinueForProceedToPayment() throws InterruptedException {
         Thread.sleep(1500);
-        firstNameForProceedToPayment.sendKeys("Ayan");
+        firstNameForProceedToPayment.sendKeys("Shariar");
         Thread.sleep(1500);
-        lastNameForProceedToPayment.sendKeys("Rahman");
+        lastNameForProceedToPayment.sendKeys("Ahmed");
         Thread.sleep(1500);
         postalCodeForProceedToPayment.sendKeys("1212");
         Thread.sleep(1500);

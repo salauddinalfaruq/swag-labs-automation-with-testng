@@ -24,6 +24,6 @@ test {
     useTestNG() {
 //        suites "./src/test/resources/suites/UserLoginSuite.xml"
 //        suites "./src/test/resources/suites/UserOrderSuite.xml"
-        suites "./src/test/resources/suites/MasterSuite.xml"
+          suites "./src/test/resources/suites/MasterSuite.xml"
     }
 }
