@@ -34,3 +34,8 @@ and also select and purchase product from the website.
   
   `allure serve allure-results`
   
+### Full automation process video
+
+https://user-images.githubusercontent.com/108132871/227183326-c711a0a6-980c-4156-893e-12e290e07fc1.mp4
+
+  
